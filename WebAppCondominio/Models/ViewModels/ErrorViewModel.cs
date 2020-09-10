@@ -1,6 +1,6 @@
 using System;
 
-namespace WebAppCondominio.Models
+namespace WebAppCondominio.Models.ViewModels
 {
     public class ErrorViewModel
     {
