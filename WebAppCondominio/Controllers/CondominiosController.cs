@@ -7,14 +7,14 @@ using WebAppCondominio.Models;
 
 namespace WebAppCondominio.Controllers
 {
-    public class CondominiosController1 : Controller
+    public class CondominiosController : Controller
     {
         public IActionResult Index()
         {
             List<Condominio> list = new List<Condominio>();
             list.Add(new Condominio { Id = 1, Nome = "Mar Azul", Bairro = "Parque Grajau" });
             list.Add(new Condominio { Id = 1, Nome = "Onda Qubrada", Bairro = "Jd Nakamura" });
-            return View();
+            return View(list);
         }
     }
 }
