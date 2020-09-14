@@ -15,5 +15,9 @@ namespace WebAppCondominio.Data
         }
 
         public DbSet<WebAppCondominio.Models.Condominio> Condominio { get; set; }
+
+        public DbSet<WebAppCondominio.Models.Familia> Familia { get; set; }
+
+        public DbSet<WebAppCondominio.Models.Morador> Morador { get; set; }
     }
 }

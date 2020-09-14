@@ -36,6 +36,8 @@ namespace WebAppCondominio
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            /*services.AddDbContext<WebAppCondominioContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("WebAppCondominioContext"), builder => builder.MigrationsAssembly("WebAppCondominio")));*/
             services.AddDbContext<WebAppCondominioContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebAppCondominioContext")));
         }
@@ -61,7 +63,7 @@ namespace WebAppCondominio
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Condominios}/{action=Index}/{id?}");
             });
         }
     }

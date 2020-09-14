@@ -1,27 +1,30 @@
-﻿@model WebAppCondominio.Models.Condominio
+﻿@model WebAppCondominio.Models.Morador
 
 @{
-    ViewData["Title"] = "Editar o Condominio";
+    ViewData["Title"] = "Cadastrar novo Morador";
 }
 
-<h2>Editar</h2>
+<h2>Cadastro</h2>
 
-<h4>Condominio</h4>
+<h4>Morador</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CondominioID" />
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" />
-                <span asp-validation-for="Bairro" class="text-danger"></span>
+                <label asp-for="FamiliaID" class="control-label">Familia</label>
+                <select asp-for="FamiliaID" class="form-control" asp-items="ViewBag.Familia"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeBichosEstimacao" class="control-label"></label>
+                <input asp-for="QuantidadeBichosEstimacao" class="form-control" />
+                <span asp-validation-for="QuantidadeBichosEstimacao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />

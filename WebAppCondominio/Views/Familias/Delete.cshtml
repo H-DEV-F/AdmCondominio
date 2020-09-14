@@ -1,13 +1,13 @@
-﻿@model WebAppCondominio.Models.Condominio
+﻿@model WebAppCondominio.Models.Familia
 
 @{
-    ViewData["Title"] = "Excluir Condominio";
+    ViewData["Title"] = "Excluir Familia";
 }
 
 <h2>Excluir</h2>
 
 <div>
-    <h4>Condominio</h4>
+    <h4>Familia</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -17,15 +17,21 @@
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Bairro)
+            @Html.DisplayNameFor(model => model.Apto)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Bairro)
+            @Html.DisplayFor(model => model.Apto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Condominio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Condominio.Nome)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="CondominioID" />
+        <input type="hidden" asp-for="FamiliaId" />
         <input type="submit" value="Excluir" class="btn btn-danger" />
         <a class="btn btn-default" asp-action="Index">Voltar</a>
     </form>

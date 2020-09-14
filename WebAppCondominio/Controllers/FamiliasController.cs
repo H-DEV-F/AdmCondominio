@@ -10,22 +10,23 @@ using WebAppCondominio.Models;
 
 namespace WebAppCondominio.Controllers
 {
-    public class CondominiosController : Controller
+    public class FamiliasController : Controller
     {
         private readonly WebAppCondominioContext _context;
 
-        public CondominiosController(WebAppCondominioContext context)
+        public FamiliasController(WebAppCondominioContext context)
         {
             _context = context;
         }
 
-        // GET: Condominios
+        // GET: Familias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Condominio.ToListAsync());
+            var webAppCondominioContext = _context.Familia.Include(f => f.Condominio);
+            return View(await webAppCondominioContext.ToListAsync());
         }
 
-        // GET: Condominios/Details/5
+        // GET: Familias/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +34,43 @@ namespace WebAppCondominio.Controllers
                 return NotFound();
             }
 
-            var condominio = await _context.Condominio
-                .FirstOrDefaultAsync(m => m.CondominioID == id);
-            if (condominio == null)
+            var familia = await _context.Familia
+                .Include(f => f.Condominio)
+                .FirstOrDefaultAsync(m => m.FamiliaId == id);
+            if (familia == null)
             {
                 return NotFound();
             }
 
-            return View(condominio);
+            return View(familia);
         }
 
-        // GET: Condominios/Create
+        // GET: Familias/Create
         public IActionResult Create()
         {
+
+            ViewData["Condominio"] = new SelectList(_context.Condominio, "CondominioID", "Nome");
             return View();
         }
 
-        // POST: Condominios/Create
+        // POST: Familias/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CondominioID,Nome,Bairro")] Condominio condominio)
+        public async Task<IActionResult> Create([Bind("FamiliaId,Nome,CondominioID,Apto")] Familia familia)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(condominio);
+                _context.Add(familia);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(condominio);
+            ViewData["CondominioID"] = new SelectList(_context.Condominio, "CondominioID", "CondominioID", familia.CondominioID);
+            return View(familia);
         }
 
-        // GET: Condominios/Edit/5
+        // GET: Familias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +78,23 @@ namespace WebAppCondominio.Controllers
                 return NotFound();
             }
 
-            var condominio = await _context.Condominio.FindAsync(id);
-            if (condominio == null)
+            var familia = await _context.Familia.FindAsync(id);
+            if (familia == null)
             {
                 return NotFound();
             }
-            return View(condominio);
+            ViewData["Condominio"] = new SelectList(_context.Condominio, "CondominioID", "Nome", familia.CondominioID);
+            return View(familia);
         }
 
-        // POST: Condominios/Edit/5
+        // POST: Familias/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CondominioID,Nome,Bairro")] Condominio condominio)
+        public async Task<IActionResult> Edit(int id, [Bind("FamiliaId,Nome,CondominioID,Apto")] Familia familia)
         {
-            if (id != condominio.CondominioID)
+            if (id != familia.FamiliaId)
             {
                 return NotFound();
             }
@@ -97,12 +103,12 @@ namespace WebAppCondominio.Controllers
             {
                 try
                 {
-                    _context.Update(condominio);
+                    _context.Update(familia);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CondominioExists(condominio.CondominioID))
+                    if (!FamiliaExists(familia.FamiliaId))
                     {
                         return NotFound();
                     }
@@ -113,10 +119,11 @@ namespace WebAppCondominio.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(condominio);
+            ViewData["CondominioID"] = new SelectList(_context.Condominio, "CondominioID", "CondominioID", familia.CondominioID);
+            return View(familia);
         }
 
-        // GET: Condominios/Delete/5
+        // GET: Familias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +131,31 @@ namespace WebAppCondominio.Controllers
                 return NotFound();
             }
 
-            var condominio = await _context.Condominio
-                .FirstOrDefaultAsync(m => m.CondominioID == id);
-            if (condominio == null)
+            var familia = await _context.Familia
+                .Include(f => f.Condominio)
+                .FirstOrDefaultAsync(m => m.FamiliaId == id);
+            if (familia == null)
             {
                 return NotFound();
             }
 
-            return View(condominio);
+            return View(familia);
         }
 
-        // POST: Condominios/Delete/5
+        // POST: Familias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var condominio = await _context.Condominio.FindAsync(id);
-            _context.Condominio.Remove(condominio);
+            var familia = await _context.Familia.FindAsync(id);
+            _context.Familia.Remove(familia);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CondominioExists(int id)
+        private bool FamiliaExists(int id)
         {
-            return _context.Condominio.Any(e => e.CondominioID == id);
+            return _context.Familia.Any(e => e.FamiliaId == id);
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<WebAppCondominio.Models.Condominio>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Condominio";
 }
 
-<h2>Index</h2>
+<h2>Condominio</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Cadastrar</a>
 </p>
 <table class="table">
     <thead>
@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Bairro)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn btn-default" asp-action="Edit" asp-route-id="@item.CondominioID">Editar</a>
+                <!--<a class="btn btn-default" asp-action="Details" asp-route-id="@item.CondominioID">Detalhes</a>-->
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CondominioID">Excluir</a>
             </td>
         </tr>
 }
