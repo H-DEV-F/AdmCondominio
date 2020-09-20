@@ -40,7 +40,7 @@ namespace WebAppCondominio.Controllers
                 return NotFound();
             }
 
-            return View(condominio);
+            return PartialView(condominio);
         }
 
         // GET: Condominios/Create
@@ -116,6 +116,18 @@ namespace WebAppCondominio.Controllers
             return View(condominio);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult PartialViewCreate([Bind("CondominioID,Nome,Bairro")] Condominio condominio)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(condominio);
+                _context.SaveChanges();
+            }
+            return Json(condominio);
+        }
+
         // GET: Condominios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -134,7 +146,6 @@ namespace WebAppCondominio.Controllers
             return View(condominio);
         }
 
-        // POST: Condominios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

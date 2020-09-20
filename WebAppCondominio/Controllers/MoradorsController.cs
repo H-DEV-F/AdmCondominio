@@ -42,7 +42,7 @@ namespace WebAppCondominio.Controllers
                 return NotFound();
             }
 
-            return View(morador);
+            return PartialView(morador);
         }
 
         // GET: Moradors/Create

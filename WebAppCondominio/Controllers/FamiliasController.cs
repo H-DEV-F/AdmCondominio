@@ -42,7 +42,7 @@ namespace WebAppCondominio.Controllers
                 return NotFound();
             }
 
-            return View(familia);
+            return PartialView(familia);
         }
 
         // GET: Familias/Create
