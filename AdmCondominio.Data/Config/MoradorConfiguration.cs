@@ -13,6 +13,9 @@ namespace AdmCondominio.Data.Config
                 .Property(x => x.Nome)
                 .IsRequired();
             builder
+                .Property(x => x.Telefone)
+                .IsRequired();
+            builder
                 .Property(x => x.Pets)
                 .IsRequired();
             builder

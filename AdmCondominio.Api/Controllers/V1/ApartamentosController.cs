@@ -1,4 +1,5 @@
 ﻿using AdmCondominio.Business.Contracts;
+using AdmCondominio.Business.Entities;
 using AdmCondominio.Business.Notification.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,16 +11,22 @@ namespace AdmCondominio.Controllers.V1
     [Route("api/v{version:apiVersion}/apartamentos")]
     public class ApatamentosController : MainController
     {
-        private readonly IMoradorRepository _moradorRepository;
-        public ApatamentosController(IMoradorRepository moradorRepository, INotificador notificador, IUser user) : base(notificador, user)
+        private readonly IApartamentoRepository _apartamentoRepository;
+        public ApatamentosController(IApartamentoRepository apartamentoRepository, INotificador notificador, IUser user) : base(notificador, user)
         {
-            _moradorRepository = moradorRepository;
+            _apartamentoRepository = apartamentoRepository;
         }
 
         [HttpGet]
-        public async Task<string> ObterTodos()
+        [Route("{id}")]
+        public async Task<Apartamento> ObterPorId(Guid id)
         {
-            return await Task.FromResult("");
+            return await _apartamentoRepository.ObterPorId(id);
+        }
+
+        public async Task<IEnumerable<Apartamento>> ObterTodos()
+        {
+            return await _apartamentoRepository.ObterTodos();
         }
     }
 }

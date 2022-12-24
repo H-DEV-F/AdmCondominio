@@ -1,11 +1,11 @@
 ﻿using AdmCondominio.Business.Contracts;
 using AdmCondominio.Business.Notification;
 using AdmCondominio.Business.Notification.Interfaces;
+using AdmCondominio.Data.Context;
 using AdmCondominio.Data.Repository;
 using AdmCondominio.Extensions;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using AdmCondominio.Data.Context;
 
 namespace AdmCondominio.Config
 {
