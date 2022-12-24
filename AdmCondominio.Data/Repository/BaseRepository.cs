@@ -2,18 +2,21 @@
 using AdmCondominio.Data.Context;
 using AdmCondominio.Data.Sql;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace AdmCondominio.Data.Repository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        protected readonly AdmCondominioDbContext AdmCondominioContexto;
         protected readonly IConfiguration _config;
+        protected readonly ILogger<BaseRepository<TEntity>> _logger;
+        protected readonly AdmCondominioDbContext AdmCondominioContexto;
 
-        public BaseRepository(AdmCondominioDbContext circlesPratasContexto, IConfiguration config)
+        public BaseRepository(AdmCondominioDbContext circlesPratasContexto, IConfiguration config, ILogger<BaseRepository<TEntity>> logger)
         {
-            AdmCondominioContexto = circlesPratasContexto;
             _config = config;
+            _logger = logger;
+            AdmCondominioContexto = circlesPratasContexto;
         }
 
         public virtual async Task Adicionar(TEntity entity)
@@ -30,14 +33,13 @@ namespace AdmCondominio.Data.Repository
 
         public virtual async Task<TEntity> ObterPorId(Guid id)
         {
-            return await Dapper<TEntity>.ObterPorId(_config, id);
-
+            return await Dapper<TEntity>.ObterPorId(_config, _logger, id);
             //return await AdmCondominioContexto.Set<TEntity>().FindAsync(id);
         }
 
         public virtual async Task<IEnumerable<TEntity>> ObterTodos()
         {
-            return await Dapper<TEntity>.ObterTodos(_config);
+            return await Dapper<TEntity>.ObterTodos(_config, _logger);
             //return await Task.FromResult(AdmCondominioContexto.Set<TEntity>().ToList());
         }
 

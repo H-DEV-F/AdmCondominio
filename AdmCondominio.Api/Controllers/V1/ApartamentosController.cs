@@ -24,6 +24,7 @@ namespace AdmCondominio.Controllers.V1
             return await _apartamentoRepository.ObterPorId(id);
         }
 
+        [HttpGet]
         public async Task<IEnumerable<Apartamento>> ObterTodos()
         {
             return await _apartamentoRepository.ObterTodos();

@@ -1,39 +1,45 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace AdmCondominio.Data.Sql
 {
     public static class Dapper<TEntity>
     {
-        public static async Task<TEntity?> ObterPorId(IConfiguration config, Guid id)
+        public static async Task<TEntity?> ObterPorId(IConfiguration config, ILogger logger, Guid id)
         {
             using (var db = new SqlConnection(config.GetConnectionString("DefaultConnection")))
             {
                 try
                 {
+                    logger.LogInformation("Conectando ao banco de dados");
+
                     await db.OpenAsync();
-                    return await db.QueryFirstAsync<TEntity>(Query(), new Params() { Filter = $" WHERE Id = '{id}'" });
+                    return await db.QueryFirstOrDefaultAsync<TEntity>(Query(), new Params() { Filter = $" WHERE Id = '{id}'" });
                 }
                 catch (Exception ex)
                 {
+                    logger.LogError(ex.Message);
                     return default;
                 }
             }
         }
 
-        public static async Task<IEnumerable<TEntity>?> ObterTodos(IConfiguration config)
+        public static async Task<IEnumerable<TEntity>?> ObterTodos(IConfiguration config, ILogger logger)
         {
-            var t = config.GetConnectionString("DefaultConnection");
             using (var db = new SqlConnection(config.GetConnectionString("DefaultConnection")))
             {
                 try
                 {
+                    logger.LogInformation("Conectando ao banco de dados");
+
                     await db.OpenAsync();
                     return await db.QueryAsync<TEntity>(Query(), new Params() { Filter = "" });
                 }
                 catch (Exception ex)
                 {
+                    logger.LogError(ex.Message);
                     return default;
                 }
             }
