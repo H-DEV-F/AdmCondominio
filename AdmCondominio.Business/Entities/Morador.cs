@@ -1,4 +1,4 @@
-﻿
+﻿using AdmCondominio.Business.ViewModels;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -16,5 +16,16 @@ namespace AdmCondominio.Business.Entities
         public int Pets { get; set; }
         public DateTime DataCadastro { get; set; } = DateTime.Now;
         public DateTime? DataAtualizacao { get; set; }
+
+        public static explicit operator Morador(MoradorViewModel obj)
+        {
+            return new Morador()
+            {
+                Nome = obj.Nome,
+                Telefone = obj.Telefone,
+                Pets = obj.Pets,
+                ApartamentoId = obj.ApartamentoId
+            };
+        }
     }
 }

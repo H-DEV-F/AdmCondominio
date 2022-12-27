@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AdmCondominio.Api.ViewModels;
 
 namespace AdmCondominio.Business.Entities
 {
@@ -17,5 +17,21 @@ namespace AdmCondominio.Business.Entities
         public DateTime DataCadastro { get; set; } = DateTime.Now;
         public DateTime? DataAtualizacao { get; set; }
         public virtual ICollection<Bloco> Blocos { get; set; }
+
+        public static explicit operator Condominio(CondominioViewModel obj)
+        {
+            return new Condominio()
+            {
+                Nome = obj.Nome,
+                Telefone = obj.Telefone,
+                Endereco = obj.Endereco,
+                Numero = obj.Numero,
+                Complemento = obj.Complemento,
+                Bairro = obj.Bairro,
+                Cidade = obj.Cidade,
+                Estado = obj.Estado,
+                CEP = obj.CEP
+            };
+        }
     }
 }

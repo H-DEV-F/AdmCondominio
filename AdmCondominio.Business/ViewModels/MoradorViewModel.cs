@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AdmCondominio.Api.ViewModels
+namespace AdmCondominio.Business.ViewModels
 {
     public class MoradorViewModel
     {
@@ -15,5 +15,8 @@ namespace AdmCondominio.Api.ViewModels
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public int Pets { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        public string Telefone { get; set; }
     }
 }

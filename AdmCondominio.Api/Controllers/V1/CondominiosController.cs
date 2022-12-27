@@ -1,4 +1,6 @@
-﻿using AdmCondominio.Business.Contracts;
+﻿using AdmCondominio.Api.ViewModels;
+using AdmCondominio.Business.Contracts;
+using AdmCondominio.Business.Entities;
 using AdmCondominio.Business.Notification.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +19,28 @@ namespace AdmCondominio.Controllers.V1
         }
 
         [HttpGet]
-        public async Task<string> ObterTodos()
+        [Route("{id}")]
+        public async Task<Condominio> ObterPorId(Guid id)
         {
-            return await Task.FromResult("");
+            return await _condominioRepository.ObterPorId(id);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<Condominio>> ObterTodos()
+        {
+            return await _condominioRepository.ObterTodos();
+        }
+
+        [HttpPost]
+        public async void Adicionar(CondominioViewModel data)
+        {
+            await _condominioRepository.Adicionar((Condominio)data);
+        }
+
+        [HttpDelete]
+        public async void Remover(CondominioViewModel data)
+        {
+            await _condominioRepository.Adicionar((Condominio)data);
         }
     }
 }

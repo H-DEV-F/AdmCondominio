@@ -1,4 +1,5 @@
-﻿using AdmCondominio.Business.Contracts;
+﻿using AdmCondominio.Api.ViewModels;
+using AdmCondominio.Business.Contracts;
 using AdmCondominio.Business.Entities;
 using AdmCondominio.Business.Notification.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -28,6 +29,18 @@ namespace AdmCondominio.Controllers.V1
         public async Task<IEnumerable<Apartamento>> ObterTodos()
         {
             return await _apartamentoRepository.ObterTodos();
+        }
+
+        [HttpPost]
+        public async void Adicionar(ApartamentoViewModel data)
+        {
+            await _apartamentoRepository.Adicionar((Apartamento)data);
+        }
+
+        [HttpDelete]
+        public async void Remover(ApartamentoViewModel data)
+        {
+            await _apartamentoRepository.Remover((Apartamento)data);
         }
     }
 }

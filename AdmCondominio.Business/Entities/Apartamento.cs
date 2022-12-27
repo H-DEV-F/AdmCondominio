@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AdmCondominio.Api.ViewModels;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace AdmCondominio.Business.Entities
@@ -15,5 +16,13 @@ namespace AdmCondominio.Business.Entities
         public DateTime? DataAtualizacao { get; set; }
         public virtual ICollection<Morador> Moradores { get; set; }
 
+        public static explicit operator Apartamento(ApartamentoViewModel obj)
+        {
+            return new Apartamento()
+            {
+                BlocoId = obj.BlocoId,
+                Identificador = obj.Identificador
+            };
+        }
     }
 }
