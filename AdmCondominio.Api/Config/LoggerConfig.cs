@@ -1,6 +1,4 @@
-﻿
-
-using AdmCondominio.Extensions;
+﻿using AdmCondominio.Extensions;
 
 namespace AdmCondominio.Config
 {
@@ -10,22 +8,25 @@ namespace AdmCondominio.Config
         {
             services.AddElmahIo(o =>
             {
-                o.ApiKey = "388dd3a277cb44c4aa128b5c899a3106";
-                o.LogId = new Guid("c468b2b8-b35d-4f1a-849d-f47b60eef096");
+                o.ApiKey = "b76edc95d42c414fab7e46ebcef840a0";
+                o.LogId = new Guid("b7205ec8-b5af-45e7-99a5-531570a75232");
             });
 
             services.AddHealthChecks()
                 .AddElmahIoPublisher(options =>
                 {
-                    options.ApiKey = "388dd3a277cb44c4aa128b5c899a3106";
-                    options.LogId = new Guid("c468b2b8-b35d-4f1a-849d-f47b60eef096");
-                    options.HeartbeatId = "API Fornecedores";
+                    options.ApiKey = "b76edc95d42c414fab7e46ebcef840a0";
+                    options.LogId = new Guid("b7205ec8-b5af-45e7-99a5-531570a75232");
+                    options.HeartbeatId = "171c973ba94b4c2fb02466e2097f9906";
 
                 })
                 .AddCheck("Db_Query", new SqlServerHealthCheck(configuration.GetConnectionString("DefaultConnection")))
                 .AddSqlServer(configuration.GetConnectionString("DefaultConnection"), name: "Db_Connection");
 
-            services.AddHealthChecksUI().AddInMemoryStorage().AddSqlServerStorage(configuration.GetConnectionString("DefaultConnection"));
+            services
+                .AddHealthChecksUI()
+                .AddInMemoryStorage()
+                .AddSqlServerStorage(configuration.GetConnectionString("DefaultConnection"));
 
             return services;
         }

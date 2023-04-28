@@ -80,7 +80,7 @@ namespace AdmCondominio.Config
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/api/hc", new HealthCheckOptions()
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions()
                 {
                     Predicate = _ => true,
                     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
@@ -88,8 +88,8 @@ namespace AdmCondominio.Config
 
                 endpoints.MapHealthChecksUI(options =>
                 {
-                    options.UIPath = "/api/hc-ui";
-                    options.ResourcesPath = "/api/hc-ui-resources";
+                    options.UIPath = "/dashboard";
+                    options.ResourcesPath = "/dashboard-resources";
 
                     options.UseRelativeApiPath = false;
                     options.UseRelativeResourcesPath = false;

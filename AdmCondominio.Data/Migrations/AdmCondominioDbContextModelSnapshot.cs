@@ -117,6 +117,10 @@ namespace AdmCondominio.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Condominios");
@@ -143,6 +147,10 @@ namespace AdmCondominio.Data.Migrations
 
                     b.Property<int>("Pets")
                         .HasColumnType("int");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

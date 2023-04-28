@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdmCondominio.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221223180243_Initital")]
-    partial class Initital
+    [Migration("20230105113038_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
