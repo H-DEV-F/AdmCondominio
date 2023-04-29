@@ -15,7 +15,11 @@ namespace AdmCondominio.Config
             IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), m => m.MigrationsAssembly("AdmCondominio.Api")));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), providerOptions => 
+                {
+                    providerOptions.EnableRetryOnFailure();
+                    providerOptions.MigrationsAssembly("AdmCondominio.Api");
+                }));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()

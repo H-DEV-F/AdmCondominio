@@ -12,7 +12,11 @@ builder.Configuration
 
 builder.Services.AddDbContext<AdmCondominio.Data.Context.AdmCondominioDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), m => m.MigrationsAssembly("AdmCondominio.Data"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), providerOptions => 
+    {
+        providerOptions.EnableRetryOnFailure();
+        providerOptions.MigrationsAssembly("AdmCondominio.Data");
+    });
 });
 
 
