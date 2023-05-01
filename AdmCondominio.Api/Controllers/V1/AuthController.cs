@@ -13,7 +13,7 @@ using System.Text;
 namespace AdmCondominio.Controllers.V1
 {
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class AuthController : MainController
     {
         private readonly SignInManager<IdentityUser> _signInManager;

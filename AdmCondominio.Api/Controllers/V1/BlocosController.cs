@@ -9,7 +9,7 @@ namespace AdmCondominio.Controllers.V1
 {
     [Authorize]
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/blocos")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class BlocosController : MainController
     {
         private readonly IBlocoRepository _blocoRepository;
