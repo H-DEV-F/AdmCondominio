@@ -1,10 +1,10 @@
-﻿using AdmCondominio.Business.Contracts;
-using AdmCondominio.Business.Notification;
-using AdmCondominio.Business.Notification.Interfaces;
+﻿using AdmCondominio.Domain.Contracts;
+using AdmCondominio.Domain.Notification;
+using AdmCondominio.Domain.Notification.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace AdmCondominio.Controllers
+namespace AdmCondominio.Api.Controllers
 {
     [ApiController]
     public class MainController : ControllerBase

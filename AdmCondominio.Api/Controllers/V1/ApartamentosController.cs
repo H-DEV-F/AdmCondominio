@@ -1,11 +1,11 @@
-﻿using AdmCondominio.Api.ViewModels;
-using AdmCondominio.Business.Contracts;
-using AdmCondominio.Business.Entities;
-using AdmCondominio.Business.Notification.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using AdmCondominio.Api.ViewModels;
+using AdmCondominio.Domain.Entities;
+using AdmCondominio.Domain.Contracts;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using AdmCondominio.Domain.Notification.Interfaces;
 
-namespace AdmCondominio.Controllers.V1
+namespace AdmCondominio.Api.Controllers.V1
 {
     [Authorize]
     [ApiVersion("1.0")]

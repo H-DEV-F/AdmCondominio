@@ -1,13 +1,13 @@
-﻿using AdmCondominio.Business.Contracts;
-using AdmCondominio.Business.Notification;
-using AdmCondominio.Business.Notification.Interfaces;
-using AdmCondominio.Data.Context;
-using AdmCondominio.Data.Repository;
-using AdmCondominio.Extensions;
+﻿using AdmCondominio.Infra.Context;
+using AdmCondominio.Api.Extensions;
 using Microsoft.Extensions.Options;
+using AdmCondominio.Domain.Contracts;
+using AdmCondominio.Domain.Notification;
+using AdmCondominio.Domain.Repositories;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using AdmCondominio.Domain.Notification.Interfaces;
 
-namespace AdmCondominio.Config
+namespace AdmCondominio.Api.Config
 {
     public static class DependencyInjectionConfig
     {

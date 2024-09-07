@@ -1,5 +1,5 @@
-﻿using AdmCondominio.Api.Data;
-using AdmCondominio.Extensions;
+﻿using AdmCondominio.Api.Api.Context;
+using AdmCondominio.Api.Api.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace AdmCondominio.Config
+namespace AdmCondominio.Api.Config
 {
     public static class IdentityConfig
     {
@@ -18,7 +18,7 @@ namespace AdmCondominio.Config
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), providerOptions => 
                 {
                     providerOptions.EnableRetryOnFailure();
-                    providerOptions.MigrationsAssembly("AdmCondominio.Api");
+                    providerOptions.MigrationsAssembly("AdmCondominio.Api.Api");
                 }));
 
             services.AddDefaultIdentity<IdentityUser>()

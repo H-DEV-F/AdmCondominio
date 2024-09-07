@@ -1,9 +1,9 @@
-﻿using AdmCondominio.Extensions;
+﻿using AdmCondominio.Api.Extensions;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AdmCondominio.Config
+namespace AdmCondominio.Api.Config
 {
     public static class ApiConfig
     {

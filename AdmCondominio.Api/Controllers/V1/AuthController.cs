@@ -1,6 +1,6 @@
-﻿using AdmCondominio.Business.Contracts;
-using AdmCondominio.Business.Notification.Interfaces;
-using AdmCondominio.Extensions;
+﻿using AdmCondominio.Api.Api.Extensions;
+using AdmCondominio.Domain.Contracts;
+using AdmCondominio.Domain.Notification.Interfaces;
 using AdmCondominio.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace AdmCondominio.Controllers.V1
+namespace AdmCondominio.Api.Controllers.V1
 {
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]

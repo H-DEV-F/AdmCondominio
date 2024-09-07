@@ -1,6 +1,6 @@
-﻿using AdmCondominio.Extensions;
+﻿using AdmCondominio.Infra.Data.HealthCheck;
 
-namespace AdmCondominio.Config
+namespace AdmCondominio.Api.Config
 {
     public static class LoggerConfig
     {

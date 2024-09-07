@@ -1,7 +1,7 @@
-﻿using AdmCondominio.Business.Contracts;
+﻿using AdmCondominio.Domain.Contracts;
 using System.Security.Claims;
 
-namespace AdmCondominio.Extensions
+namespace AdmCondominio.Api.Extensions
 {
     public class AspNetUser : IUser
     {

@@ -4,7 +4,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text.Json;
 
-namespace AdmCondominio.Config
+namespace AdmCondominio.Api.Config
 {
     public static class SwaggerConfig
     {
