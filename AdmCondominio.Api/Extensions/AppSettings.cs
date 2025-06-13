@@ -1,4 +1,4 @@
-﻿namespace AdmCondominio.Api.Api.Extensions
+﻿namespace AdmCondominio.Api.Extensions
 {
     public class AppSettings
     {

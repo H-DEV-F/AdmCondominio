@@ -1,4 +1,4 @@
-﻿using AdmCondominio.Api.Api.Extensions;
+﻿using AdmCondominio.Api.Extensions;
 using AdmCondominio.Domain.Contracts;
 using AdmCondominio.Domain.Notification.Interfaces;
 using AdmCondominio.ViewModels;

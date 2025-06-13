@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AdmCondominio.Domain.Repositories
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public class BaseRepository<TEntity> : 3<TEntity> where TEntity : class
     {
         protected readonly IConfiguration _config;
         protected readonly ILogger<BaseRepository<TEntity>> _logger;

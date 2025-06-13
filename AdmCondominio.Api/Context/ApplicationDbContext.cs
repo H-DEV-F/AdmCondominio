@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace AdmCondominio.Api.Api.Context
+namespace AdmCondominio.Api.Context
 {
     public class ApplicationDbContext : IdentityDbContext
     {
