@@ -1,6 +1,8 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
-namespace AdmCondominio.Api.Extensions
+namespace AdmCondominio.Infra.Extensions
 {
     public class ExceptionMiddleware
     {
