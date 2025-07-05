@@ -1,8 +1,8 @@
-﻿using AdmCondominio.Domain.Contracts;
+﻿using Microsoft.AspNetCore.Mvc;
+using AdmCondominio.Domain.Contracts;
 using AdmCondominio.Domain.Notification;
-using AdmCondominio.Domain.Notification.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using AdmCondominio.Domain.Notification.Interfaces;
 
 namespace AdmCondominio.Api.Controllers
 {

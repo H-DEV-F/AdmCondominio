@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.Options;
+﻿using System.Text.Json;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace AdmCondominio.Api.Config
 {
