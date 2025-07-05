@@ -1,8 +1,8 @@
-﻿using AdmCondominio.Domain.Contracts;
-using AdmCondominio.Domain.Sql;
+﻿using AdmCondominio.Domain.Sql;
 using AdmCondominio.Infra.Context;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using AdmCondominio.Domain.Contracts;
+using Microsoft.Extensions.Configuration;
 
 namespace AdmCondominio.Domain.Repositories
 {
@@ -34,13 +34,11 @@ namespace AdmCondominio.Domain.Repositories
         public virtual async Task<TEntity> ObterPorId(Guid id)
         {
             return await Dapper<TEntity>.ObterPorId(_config, _logger, id);
-            //return await AdmCondominioContexto.Set<TEntity>().FindAsync(id);
         }
 
         public virtual async Task<IEnumerable<TEntity>> ObterTodos()
         {
             return await Dapper<TEntity>.ObterTodos(_config, _logger);
-            //return await Task.FromResult(AdmCondominioContexto.Set<TEntity>().ToList());
         }
 
         public virtual async Task Remover(TEntity entity)
