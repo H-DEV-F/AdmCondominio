@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AdmCondominio.Domain.Migrations
+namespace AdmCondominio.Infra.Migrations
 {
     public partial class Initial : Migration
     {

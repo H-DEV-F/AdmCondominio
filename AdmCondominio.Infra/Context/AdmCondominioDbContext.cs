@@ -10,7 +10,7 @@ namespace AdmCondominio.Infra.Context
         public DbSet<Bloco>? Blocos { get; set; }
         public DbSet<Apartamento>? Apartamentos { get; set; }
         public DbSet<Morador>? Moradores { get; set; }
-        public AdmCondominioDbContext (DbContextOptions<AdmCondominioDbContext> options) : base(options)
+        public AdmCondominioDbContext(DbContextOptions<AdmCondominioDbContext> options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.AutoDetectChangesEnabled = false;

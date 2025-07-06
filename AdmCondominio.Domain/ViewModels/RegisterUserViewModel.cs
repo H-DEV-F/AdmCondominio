@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AdmCondominio.ViewModels
+namespace AdmCondominio.Domain.ViewModels
 {
     public class RegisterUserViewModel
     {

@@ -2,8 +2,9 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using AdmCondominio.Domain.Sql;
 
-namespace AdmCondominio.Domain.Sql
+namespace AdmCondominio.Infra.Sql
 {
     public static class Dapper<TEntity>
     {

@@ -1,5 +1,5 @@
-﻿using AdmCondominio.Domain.Contracts;
-using System.Security.Claims;
+﻿using System.Security.Claims;
+using AdmCondominio.Domain.Contracts;
 
 namespace AdmCondominio.Api.Extensions
 {

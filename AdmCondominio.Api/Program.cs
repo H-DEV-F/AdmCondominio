@@ -1,4 +1,5 @@
 using AdmCondominio.Api.Config;
+using AdmCondominio.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
@@ -10,7 +11,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
     .AddEnvironmentVariables();
 
-builder.Services.AddDbContext<AdmCondominio.Infra.Context.AdmCondominioDbContext>(options =>
+builder.Services.AddDbContext<AdmCondominioDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), providerOptions => 
     {
@@ -18,7 +19,6 @@ builder.Services.AddDbContext<AdmCondominio.Infra.Context.AdmCondominioDbContext
         providerOptions.MigrationsAssembly("AdmCondominio.Infra.Context");
     });
 });
-
 
 builder.Services.AddIdentityConfig(builder.Configuration);
 

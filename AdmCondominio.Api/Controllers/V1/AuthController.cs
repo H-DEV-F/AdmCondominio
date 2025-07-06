@@ -1,14 +1,14 @@
-﻿using AdmCondominio.Api.Extensions;
-using AdmCondominio.Domain.Contracts;
-using AdmCondominio.Domain.Notification.Interfaces;
-using AdmCondominio.ViewModels;
-using Microsoft.AspNetCore.Identity;
+﻿using System.Text;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using AdmCondominio.Api.Extensions;
+using Microsoft.AspNetCore.Identity;
+using AdmCondominio.Domain.Contracts;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using AdmCondominio.Domain.ViewModels;
+using AdmCondominio.Domain.Notification.Interfaces;
 
 namespace AdmCondominio.Api.Controllers.V1
 {

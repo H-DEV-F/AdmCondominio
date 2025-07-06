@@ -1,11 +1,11 @@
-﻿using AdmCondominio.Api.Context;
+﻿using System.Text;
+using AdmCondominio.Api.Context;
 using AdmCondominio.Api.Extensions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace AdmCondominio.Api.Config
 {

@@ -1,4 +1,4 @@
-﻿using AdmCondominio.Domain.Sql;
+﻿using AdmCondominio.Infra.Sql;
 using AdmCondominio.Infra.Context;
 using Microsoft.Extensions.Logging;
 using AdmCondominio.Domain.Contracts;
