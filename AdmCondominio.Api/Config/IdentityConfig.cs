@@ -28,8 +28,6 @@ namespace AdmCondominio.Api.Config
 
             services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(Path.GetTempPath()));
 
-            // JWT
-
             var appSettingsSection = configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
